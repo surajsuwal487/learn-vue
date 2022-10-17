@@ -17,21 +17,16 @@
   </header>
   <section id="events">
     <h2>Events in Action</h2>
-    <p>Using event arguments</p>
-    <button v-on:click="addCounter(5)">Add 5</button>
-    <button v-on:click="lessCounter(5)">Reduce 5</button>
-    <p v-once>Starting Counter: {{ counter }}</p>
+    <button v-on:click="add(10)">Add 10</button>
+    <button v-on:click="reduce(5)">Subtract 5</button>
     <p>Result: {{ counter }}</p>
-    <br>
-    <p>Using the naive event object</p>
-    <input type="text" v-on:input="setName($event, 'Suwal')" v-on:keyup.enter="confirmedInput">
-    <p>Your Name: {{ confirmedName }}</p>
-    <br><br>
-    <p>Exploring Event Modifiers</p>
-    <form action="" v-on:submit.prevent="submitForm">
-      <input type="text">
-      <button>Sign Up</button>
-    </form>
+    <!-- <input type="text" v-bind:value="name" v-on:input="setName($event, 'Schwarzmüller')"> -->
+    <!-- We can use two way binding insted of above code.a -->
+    <input type="text" v-model="name">
+    <button v-on:click="resetInput">Reset Input</button>
+
+    <!-- If you use like this vue will reload whole page. Because it doesnt know what is there in the function. Method are not the solution for outputing some dynamic data. -->
+    <p>Your Name: {{ outputFullName() }}</p>
   </section>
 </body>
 

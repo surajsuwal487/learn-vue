@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Vue Events</h1>
+    <h4>Computed Properties.Computed Properties are essentially like method with one important difference.Vue will be aware of dependencies and only execute them if one of the dependencies changed.</h4>
+    <h1>Vue Watchers</h1>
+    <h4>Watchers is basically a function. You can tell vue to execute when of its dependencies changes.</h4>
+    <h1>Shorthand</h1>
+    <h4>You can use @ insted of 'v-on:' and only : for 'v-bind'.</h4>
+  </header>
+  <section id="events">
+    <h2>Events in Action</h2>
+    <button @click="add(10)">Add 10</button>
+    <button v-on:click="reduce(5)">Subtract 5</button>
+    <p>Result: {{ counter }}</p>
+    <!-- <input type="text" v-bind:value="name" v-on:input="setName($event, 'Schwarzmüller')"> -->
+    <!-- We can use two way binding insted of above code.a -->
+    <input type="text" v-model="name">
+    <input type="text" v-model="lastname">
+    <button v-on:click="resetInput">Reset Input</button>
+
+    <!-- If you use like this vue will reload whole page. Because it doesnt know what is there in the function. Method are not the solution for outputing some dynamic data. -->
+    <p>Your Name: {{ fullname }}</p>
+  </section>
+</body>
+
+</html>
